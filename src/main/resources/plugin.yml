@@ -1,0 +1,5 @@
+name: MythicRaces
+version: '${project.version}'
+main: com.clanjhoo.mythicraces.MythicRaces
+api-version: 1.19
+authors: [ RFSMassascre, Mowstyl ]
