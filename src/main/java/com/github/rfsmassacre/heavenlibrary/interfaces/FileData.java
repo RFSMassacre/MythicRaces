@@ -2,6 +2,9 @@ package com.github.rfsmassacre.heavenlibrary.interfaces;
 
 import java.io.File;
 
+/**
+ * Implement for manipulation of any kind of flat file storage system.
+ */
 public interface FileData<T>
 {
     /**

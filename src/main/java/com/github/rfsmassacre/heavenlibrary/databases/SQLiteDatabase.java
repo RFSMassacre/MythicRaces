@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Handle SQLite databases.
+ *
+ * @param <T> Object type to store or query.
+ */
+@SuppressWarnings({"unused", "ResultOfMethodCallIgnored"})
 public abstract class SQLiteDatabase<T> extends SQLDatabase<T>
 {
-    /**
-     * Check for database driver only once.
-     */
     static
     {
         try
@@ -23,11 +26,12 @@ public abstract class SQLiteDatabase<T> extends SQLDatabase<T>
     }
 
     //Database information.
-    private String absolutePath;
-    private String database;
+    private final String absolutePath;
+    private final String database;
 
     /**
      * Save database while instantiating.
+     *
      * @param absolutePath Path for databases file location.
      * @param database Name of database.
      */
@@ -49,6 +53,7 @@ public abstract class SQLiteDatabase<T> extends SQLDatabase<T>
 
     /**
      * Connect to database.
+     *
      * @throws SQLException Expected to throw if wrong parameters were entered or host is not up.
      * @throws ClassNotFoundException Not expected to throw.
      */

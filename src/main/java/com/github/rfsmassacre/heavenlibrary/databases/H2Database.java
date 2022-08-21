@@ -1,7 +1,6 @@
 package com.github.rfsmassacre.heavenlibrary.databases;
 
 import java.io.File;
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -9,13 +8,12 @@ import java.util.List;
 
 /**
  * Handle H2 databases.
+ *
  * @param <T> Object type to store or query.
  */
+@SuppressWarnings("unused")
 public abstract class H2Database<T> extends SQLDatabase<T>
 {
-    /**
-     * Check for database driver only once.
-     */
     static
     {
         try
@@ -29,14 +27,14 @@ public abstract class H2Database<T> extends SQLDatabase<T>
     }
 
     //Database information.
-    private String absolutePath;
-    private String database;
-    private Connection connection;
+    private final String absolutePath;
+    private final String database;
     protected String mainKey;
     protected List<String> columns; //This is assumed they are properly formatted.
 
     /**
      * Save database while instantiating.
+     *
      * @param absolutePath Path for databases file location.
      * @param database Name of database.
      */
@@ -59,6 +57,7 @@ public abstract class H2Database<T> extends SQLDatabase<T>
 
     /**
      * Connect to database.
+     *
      * @throws SQLException Expected to throw if wrong parameters were entered or host is not up.
      * @throws ClassNotFoundException Not expected to throw.
      */

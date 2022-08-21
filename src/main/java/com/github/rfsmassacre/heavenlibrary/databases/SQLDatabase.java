@@ -7,12 +7,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Define common functions used in all SQL databases.
+ *
+ * @param <T> Object type to store or query.
+ */
 abstract class SQLDatabase<T> implements SQLData<T>
 {
     protected Connection connection;
 
     /**
      * Disconnect from database.
+     *
      * @throws SQLException Expected to throw if host is no longer up.
      */
     @Override
@@ -26,6 +32,7 @@ abstract class SQLDatabase<T> implements SQLData<T>
 
     /**
      * Update database with series of statements.
+     *
      * @param sqls Series of queries to update in database.
      */
     @Override
@@ -48,6 +55,7 @@ abstract class SQLDatabase<T> implements SQLData<T>
 
     /**
      * Retrieve object from database.
+     *
      * @param sql SQL statement.
      * @return Object from database.
      */
@@ -72,6 +80,12 @@ abstract class SQLDatabase<T> implements SQLData<T>
         return t;
     }
 
+    /**
+     * Create table in database.
+     *
+     * @param tableName Name of table.
+     * @param columns Column names for each column in table.
+     */
     @Override
     public void createTable(String tableName, String... columns)
     {
